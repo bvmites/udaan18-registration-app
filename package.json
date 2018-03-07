@@ -1,0 +1,22 @@
+{
+  "name": "registration-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "handsontable": "^0.36.0",
+    "handsontable-pro": "^1.16.0",
+    "localforage": "^1.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-handsontable": "^0.3.1",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "webpack -d --watch",
+    "build": "webpack -p"
+  }
+}
