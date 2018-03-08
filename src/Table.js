@@ -164,7 +164,11 @@ export default class Table extends Component {
                                       source: branchNames,
                                       strict: false
                                   },
-                                  {},
+                                  {
+                                      type: 'autocomplete',
+                                      source: ['1', '2', '3', '4'],
+                                      strict: true
+                                  },
                                   {},
                                   {},
                                   {},
@@ -180,6 +184,10 @@ export default class Table extends Component {
                           data={this.state.tableData}
                           afterChange={function (_, source) {
                               if (source === 'edit') {
+                                  self.setState(() => ({
+                                      message: '',
+                                      error: ''
+                                  }));
                                   // noinspection JSPotentiallyInvalidUsageOfClassThis
                                   self.handleDataChange(this.getData());
                               }
