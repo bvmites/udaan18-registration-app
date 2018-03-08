@@ -3,9 +3,8 @@ import HotTable from 'react-handsontable';
 import localforage from 'localforage';
 import axios from 'axios';
 
-import config from './config';
+import {events} from './events';
 
-const events = config.events;
 const eventNames = events.map(e => e.eventName);
 
 const cleanup = (data) => {
@@ -52,7 +51,7 @@ export default class Table extends Component {
 
     componentWillMount() {
         localforage.getItem(this.props.user.name)
-            .then(data => data ? this.setState((state) => ({tableData: cleanup(data)})) : null);
+            .then(data => data ? this.setState(() => ({tableData: cleanup(data)})) : null);
     }
 
     getData() {
@@ -60,12 +59,12 @@ export default class Table extends Component {
         return filteredTableData.map((row) => {
             const name = row.slice(6).filter(p => p && p.toString().trim().length !== 0);
             return {
-                registrationDate: row[0].trim(),
-                receiptNo: row[1].trim(),
-                eventName: row[2].trim(),
-                branch: row[3].trim(),
-                year: row[4].trim(),
-                phone: row[5].trim(),
+                registrationDate: row[0] ? row[0].trim() : null,
+                receiptNo: row[1] ? row[1].trim() : null,
+                eventName: row[2] ? row[2].trim() : null,
+                branch: row[3] ? row[3].trim() : null,
+                year: row[4] ? row[4].trim() : null,
+                phone: row[5] ? row[5].trim() : null,
                 name: name.length === 1 ? name[0] : name
             };
         });
@@ -74,13 +73,13 @@ export default class Table extends Component {
     handleDataChange(data) {
         localforage.setItem(this.props.user.name, data)
             .then(() => localforage.getItem(this.props.user.name))
-            .then(data => this.setState((state) => ({tableData: data})));
+            .then(data => this.setState(() => ({tableData: data})));
     }
 
     clearData() {
         localforage.setItem(this.props.user.name, null)
             .then(() => this.setState(
-                (state) => ({tableData: [[]]})
+                () => ({tableData: [[]]})
             ));
     }
 
@@ -97,7 +96,8 @@ export default class Table extends Component {
             'Content-Type': 'application/json',
             'Authorization': this.props.user.token
         };
-        axios.post(apiUrl, payload, headers)
+        console.log('HEADERS', headers);
+        axios.post(apiUrl, payload, {headers})
             .then((response) => {
                 if (response.status === 200) {
                     self.clearData();
@@ -108,9 +108,11 @@ export default class Table extends Component {
                 const response = error.response;
                 if (response.status === 404 || response.status === 405) {
                     const errors = response.data.invalid.map(p => +p + 1).join(',');
-                    self.setState((state) => ({error: `Error in rows ${errors}`}));
+                    self.setState(() => ({error: `Error in rows ${errors}`}));
+                } else if (response.status === 401) {
+                    self.setState(() => ({error: `Authentication error. Please login again`}));
                 } else {
-                    self.setState((state) => ({error: `Internal server error.`}));
+                    self.setState(() => ({error: `Internal server error.`}));
                 }
             })
     }
@@ -163,6 +165,7 @@ export default class Table extends Component {
                           data={this.state.tableData}
                           afterChange={function (_, source) {
                               if (source === 'edit') {
+                                  // noinspection JSPotentiallyInvalidUsageOfClassThis
                                   self.handleDataChange(this.getData());
                               }
                           }}
