@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "grommet": "^1.10.1",
+    "grommet-cli": "^5.1.2",
     "handsontable": "^0.36.0",
     "handsontable-pro": "^1.16.0",
     "localforage": "^1.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-handsontable": "^0.3.1",
+    "react-materialize": "^2.1.0",
     "react-scripts": "1.1.1"
   },
   "scripts": {

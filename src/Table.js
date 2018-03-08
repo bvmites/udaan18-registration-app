@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import HotTable from 'react-handsontable';
 import localforage from 'localforage';
 import axios from 'axios';
+import {Input, Row, Col, Button} from 'react-materialize'
 
 import {events} from './events';
 
@@ -179,8 +180,14 @@ export default class Table extends Component {
                               }
                           }}
                 />
-                <button id="sub" onClick={this.sendData}>Send</button>
-                <button id="clear" onClick={this.cleanupData}>Cleanup</button>
+                <Row align="center">
+                    <Col s={3} offset="s3" align="center">
+                        <Button id="sub" onClick={this.sendData}>Send</Button>
+                    </Col>
+                    <Col s={3} align="center">
+                        <Button id="clear" onClick={this.clearData}>Cleanup</Button>
+                    </Col>
+                </Row>
                 <div>{this.state.error}</div>
                 <div>{this.state.message}</div>
             </div>

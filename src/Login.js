@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './index.css';
-import axios from 'axios'
+import './login.css';
+import axios from 'axios';
+import {Input, Row, Col, Button} from 'react-materialize'
 
 class Login extends Component {
     constructor(props) {
@@ -44,26 +45,37 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <input type="text"
-                           value={this.state.username}
-                           onChange={e => this.setState({username: e.target.value})}
-                    />
-                </div>
-                <div>
-                    <input type="password"
-                           value={this.state.password}
-                           onChange={e => this.setState({password: e.target.value})}
-                    />
-                </div>
-                <div>
-                    <button value="Login" onClick={(event) => this.handleClick(event)}>
-                        Login
-                    </button>
-                </div>
-                <div>
-                    {this.state.loginError}
-                </div>
+                <Row>
+                    <Col s={4} align="center">
+                        <div className="instructions">
+                            Instructions:
+                        </div>
+                    </Col>
+                    <Col s={4} align="center">
+                        <img src="./logo.png" className="responsive-img"/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col s={4} offset="s4">
+                        <Input s={12} type="text" lable="username" value={this.state.username}
+                               onChange={e => this.setState({username: e.target.value})}/></Col>
+                </Row>
+                <Row>
+                    <Col s={4} offset="s4">
+                        <Input type="password" s={12} lable="Password" value={this.state.password}
+                               onChange={e => this.setState({password: e.target.value})}/></Col>
+                </Row>
+                <Row>
+                    <Col s={4} offset="s4" align="center">
+                        <Button waves="light" onClick={(event) => this.handleClick(event)}>Login</Button>
+                    </Col>
+                </Row>
+                <Row align="center">
+                    <div>
+                        {this.state.loginError}
+                    </div>
+                </Row>
+
             </div>
         );
     };
