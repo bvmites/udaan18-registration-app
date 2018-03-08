@@ -57,12 +57,12 @@ class Login extends Component {
                 </Row>
                 <Row>
                     <Col s={4} offset="s4">
-                        <Input s={12} type="text" lable="username" value={this.state.username}
+                        <Input s={12} type="text" lable="User name" placeholder="Username" value={this.state.username}
                                onChange={e => this.setState({username: e.target.value})}/></Col>
                 </Row>
                 <Row>
                     <Col s={4} offset="s4">
-                        <Input type="password" s={12} lable="Password" value={this.state.password}
+                        <Input type="password" s={12} lable="Password" placeholder="Password" value={this.state.password}
                                onChange={e => this.setState({password: e.target.value})}/></Col>
                 </Row>
                 <Row>
