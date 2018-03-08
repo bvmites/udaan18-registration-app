@@ -15,16 +15,17 @@ class App extends Component {
         this.handleLogin = this.handleLogin.bind(this);
     }
 
-    handleLogin({token}) {
-        this.setState((prevState) => ({
+    handleLogin({token, username}) {
+        this.setState(() => ({
             isLoggedIn: true,
-            token
+            token,
+            username
         }));
     }
 
     render() {
         if (this.state.isLoggedIn) {
-            return <Table/>;
+            return <Table user={{name: this.state.username, token: this.state.token}}/>;
         } else  {
             return <Login onLogin={this.handleLogin}/>;
         }

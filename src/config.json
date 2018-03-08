@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "_id": "5a9d935e509ba3258ff3d063",
+      "eventName": "Test Event1"
+    },
+    {
+      "_id": "5a9d9bcc0cf58430777770d1",
+      "eventName": "Test Event2"
+    },
+    {
+      "_id": "5aa0186e98dbf71d579cf26b",
+      "eventName": "Test Event3"
+    }
+  ]
+}
