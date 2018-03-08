@@ -14,7 +14,7 @@ class Login extends Component {
     }
 
     handleClick(event) {
-        let apiBaseUrl = 'http://udaan18-participants-api.herokuapp.com/users/login';
+        let apiBaseUrl = 'https://udaan18-participants-api.herokuapp.com/users/login';
         let self = this;
         const payload = {
             username: this.state.username,

@@ -1,4 +1,5 @@
 {
+  "homepage": "http://bvmites.github.io/udaan18-registration-app",
   "name": "udaan18-registration-app",
   "version": "0.1.0",
   "private": true,
@@ -16,10 +17,14 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }

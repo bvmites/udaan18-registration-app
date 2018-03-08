@@ -1,16 +1,252 @@
 {
   "events": [
     {
-      "_id": "5a9d935e509ba3258ff3d063",
-      "eventName": "Test Event1"
+      "_id": "5a9d527fc81df00014bae9c7",
+      "eventName": "Automatico"
     },
     {
-      "_id": "5a9d9bcc0cf58430777770d1",
-      "eventName": "Test Event2"
+      "_id": "5a9d5291c81df00014bae9c8",
+      "eventName": "Fema Palooza"
     },
     {
-      "_id": "5aa0186e98dbf71d579cf26b",
-      "eventName": "Test Event3"
+      "_id": "5a9d5429c81df00014bae9c9",
+      "eventName": "HardWizard"
+    },
+    {
+      "_id": "5a9d5485c81df00014bae9ca",
+      "eventName": "Bomb Diggy Diggy BOOM!"
+    },
+    {
+      "_id": "5a9d5579c81df00014bae9cb",
+      "eventName": "Designifico"
+    },
+    {
+      "_id": "5a9d55a7c81df00014bae9cc",
+      "eventName": "Voltorb"
+    },
+    {
+      "_id": "5a9d5651c81df00014bae9cd",
+      "eventName": "CodePanther"
+    },
+    {
+      "_id": "5a9d565ac81df00014bae9ce",
+      "eventName": "Dots & Dash"
+    },
+    {
+      "_id": "5a9d5774c81df00014bae9cf",
+      "eventName": "GeekWebber"
+    },
+    {
+      "_id": "5a9d57f1c81df00014bae9d0",
+      "eventName": "Electro-Picaso"
+    },
+    {
+      "_id": "5a9d5840c81df00014bae9d1",
+      "eventName": "Auct-O-Pus"
+    },
+    {
+      "_id": "5a9d5921c81df00014bae9d2",
+      "eventName": "Bolly Mix Bolly"
+    },
+    {
+      "_id": "5a9d592bc81df00014bae9d3",
+      "eventName": "Techno Manager"
+    },
+    {
+      "_id": "5a9d5979c81df00014bae9d4",
+      "eventName": "Cricket Fantasy"
+    },
+    {
+      "_id": "5a9d5a0fc81df00014bae9d5",
+      "eventName": "AutoFrenzy"
+    },
+    {
+      "_id": "5a9d5a43c81df00014bae9d6",
+      "eventName": "Codestorm"
+    },
+    {
+      "_id": "5a9d5a77c81df00014bae9d7",
+      "eventName": "Antakshari"
+    },
+    {
+      "_id": "5a9d5acec81df00014bae9d8",
+      "eventName": "Mind’s Eye"
+    },
+    {
+      "_id": "5a9d5b49c81df00014bae9d9",
+      "eventName": "Q-riosity"
+    },
+    {
+      "_id": "5a9d5b61c81df00014bae9da",
+      "eventName": "Hydrobounze"
+    },
+    {
+      "_id": "5a9d5b78c81df00014bae9db",
+      "eventName": "HackerEarth"
+    },
+    {
+      "_id": "5a9d5b94c81df00014bae9dc",
+      "eventName": "Roborash"
+    },
+    {
+      "_id": "5a9d5c14c81df00014bae9dd",
+      "eventName": "Da Vinci"
+    },
+    {
+      "_id": "5a9d5c2dc81df00014bae9de",
+      "eventName": "Contraption"
+    },
+    {
+      "_id": "5a9d5c36c81df00014bae9df",
+      "eventName": "Socioholic"
+    },
+    {
+      "_id": "5a9d5c47c81df00014bae9e0",
+      "eventName": "Idiot Box"
+    },
+    {
+      "_id": "5a9d5c7bc81df00014bae9e1",
+      "eventName": "Botball"
+    },
+    {
+      "_id": "5a9d5ca8c81df00014bae9e2",
+      "eventName": "Maphorlfe"
+    },
+    {
+      "_id": "5a9d5cbdc81df00014bae9e3",
+      "eventName": "Bid the best!"
+    },
+    {
+      "_id": "5a9d5d10c81df00014bae9e4",
+      "eventName": "F-R-I-E-N-D-S"
+    },
+    {
+      "_id": "5a9d5d1ec81df00014bae9e5",
+      "eventName": "Takeshi’s Castle"
+    },
+    {
+      "_id": "5a9d5d21c81df00014bae9e6",
+      "eventName": "Envisage"
+    },
+    {
+      "_id": "5a9d5d45c81df00014bae9e7",
+      "eventName": "Guru"
+    },
+    {
+      "_id": "5a9d5d6ac81df00014bae9e8",
+      "eventName": "MockStock"
+    },
+    {
+      "_id": "5a9d5db9c81df00014bae9e9",
+      "eventName": "Bottle Rocketry"
+    },
+    {
+      "_id": "5a9d5defc81df00014bae9ea",
+      "eventName": "Source d’energie"
+    },
+    {
+      "_id": "5a9d5e38c81df00014bae9eb",
+      "eventName": "NFS MW"
+    },
+    {
+      "_id": "5a9d5e39c81df00014bae9ec",
+      "eventName": "Sherlock in the city"
+    },
+    {
+      "_id": "5a9d5f1ec81df00014bae9ed",
+      "eventName": "Valar Morghulis"
+    },
+    {
+      "_id": "5a9d5fd4c81df00014bae9ee",
+      "eventName": "Meme-O-Mania"
+    },
+    {
+      "_id": "5a9d5ffbc81df00014bae9ef",
+      "eventName": "Are you a Binge-Watcher?"
+    },
+    {
+      "_id": "5a9d605cc81df00014bae9f0",
+      "eventName": "Mysterious Island"
+    },
+    {
+      "_id": "5a9d606cc81df00014bae9f1",
+      "eventName": "kSetrin"
+    },
+    {
+      "_id": "5a9d60acc81df00014bae9f2",
+      "eventName": "BVM MUN"
+    },
+    {
+      "_id": "5a9d60f1c81df00014bae9f3",
+      "eventName": "Roadies"
+    },
+    {
+      "_id": "5a9d60fcc81df00014bae9f4",
+      "eventName": "Nonstop Nonsense"
+    },
+    {
+      "_id": "5a9d61b3c81df00014bae9f5",
+      "eventName": "Never Settle"
+    },
+    {
+      "_id": "5a9d61e3c81df00014bae9f6",
+      "eventName": "Student of the year"
+    },
+    {
+      "_id": "5a9d62f3c81df00014bae9f7",
+      "eventName": "Circuit Mania"
+    },
+    {
+      "_id": "5a9d8803b0ab4e00148e6da2",
+      "eventName": "Geo  Genius"
+    },
+    {
+      "_id": "5a9d8955b0ab4e00148e6da3",
+      "eventName": "Green Canvas"
+    },
+    {
+      "_id": "5a9d8a1ab0ab4e00148e6da4",
+      "eventName": "Hydro-de-Bridge"
+    },
+    {
+      "_id": "5a9d8b23b0ab4e00148e6da5",
+      "eventName": "Shake It Up!!!"
+    },
+    {
+      "_id": "5a9d8ce9b0ab4e00148e6da6",
+      "eventName": "Total Surveyor"
+    },
+    {
+      "_id": "5a9d8deeb0ab4e00148e6da7",
+      "eventName": "Service Before Self (SSB)"
+    },
+    {
+      "_id": "5a9d8f0db0ab4e00148e6da8",
+      "eventName": "Mind Play"
+    },
+    {
+      "_id": "5a9d8fdeb0ab4e00148e6da9",
+      "eventName": "The Final Detection"
+    },
+    {
+      "_id": "5a9e5c6d5100800014ca5acb",
+      "eventName": "CS : GO"
+    },
+    {
+      "_id": "5a9e5d055100800014ca5acc",
+      "eventName": "FIFA18"
+    },
+    {
+      "_id": "5a9f06bb1dead80014b97888",
+      "eventName": "Treasure Hunt"
+    },
+    {
+      "_id": "5a9f0ba41dead80014b97889",
+      "eventName": "Paint ball"
+    },
+    {
+      "_id": "5a9f0d7b1dead80014b9788a",
+      "eventName": "Zorb Fighting"
     }
   ],
   "branchNames": [

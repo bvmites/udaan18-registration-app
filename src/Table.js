@@ -96,7 +96,7 @@ export default class Table extends Component {
 
     sendData() {
         const self = this;
-        const apiUrl = 'http://udaan18-participants-api.herokuapp.com/participants';
+        const apiUrl = 'https://udaan18-participants-api.herokuapp.com/participants';
         const data = this.getData();
         const payload = data.map(p => {
             const event = events.find(e => e.eventName === p.eventName);
