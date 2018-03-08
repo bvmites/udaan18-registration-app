@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import HotTable from 'react-handsontable';
 import localforage from 'localforage';
 import axios from 'axios';
-import {Input, Row, Col, Button} from 'react-materialize'
+import {Button, Col, Row} from 'react-materialize'
 
-import {events} from './events';
+import {branchNames, events} from './data';
 
 const eventNames = events.map(e => e.eventName);
 
@@ -158,7 +158,11 @@ export default class Table extends Component {
                                       source: eventNames,
                                       strict: true
                                   },
-                                  {},
+                                  {
+                                      type: 'autocomplete',
+                                      source: branchNames,
+                                      strict: false
+                                  },
                                   {},
                                   {},
                                   {},
@@ -185,7 +189,7 @@ export default class Table extends Component {
                         <Button id="sub" onClick={this.sendData}>Send</Button>
                     </Col>
                     <Col s={3} align="center">
-                        <Button id="clear" onClick={this.clearData}>Cleanup</Button>
+                        <Button id="clear" onClick={this.cleanupData}>Cleanup</Button>
                     </Col>
                 </Row>
                 <div>{this.state.error}</div>

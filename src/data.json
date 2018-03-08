@@ -12,5 +12,15 @@
       "_id": "5aa0186e98dbf71d579cf26b",
       "eventName": "Test Event3"
     }
+  ],
+  "branchNames": [
+    "CP",
+    "IT",
+    "MECH",
+    "PROD",
+    "EC",
+    "ET",
+    "EL",
+    "CE"
   ]
 }
