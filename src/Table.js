@@ -47,6 +47,7 @@ export default class Table extends Component {
         this.handleDataChange = this.handleDataChange.bind(this);
         this.sendData = this.sendData.bind(this);
         this.clearData = this.clearData.bind(this);
+        this.cleanupData = this.cleanupData.bind(this);
     }
 
     componentWillMount() {
@@ -80,6 +81,14 @@ export default class Table extends Component {
         localforage.setItem(this.props.user.name, null)
             .then(() => this.setState(
                 () => ({tableData: [[]]})
+            ));
+    }
+
+    cleanupData() {
+        const data = cleanup(this.state.tableData);
+        localforage.setItem(this.props.user.name, data)
+            .then(() => this.setState(
+                () => ({tableData: data})
             ));
     }
 
@@ -171,7 +180,7 @@ export default class Table extends Component {
                           }}
                 />
                 <button id="sub" onClick={this.sendData}>Send</button>
-                <button id="clear">Cleanup</button>
+                <button id="clear" onClick={this.cleanupData}>Cleanup</button>
                 <div>{this.state.error}</div>
                 <div>{this.state.message}</div>
             </div>
