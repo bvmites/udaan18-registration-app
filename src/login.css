@@ -13,3 +13,19 @@
     font-weight: bold;
     margin-top: 50px;
 }
+
+.submitRow{
+    margin-top: 20px;
+}
+
+.error{
+    font-size: 20px;
+    margin-top: 10px;
+    color: red;
+}
+
+.message{
+    font-size: 20px;
+    margin-top: 10px;
+    color: green;
+}

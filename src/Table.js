@@ -3,6 +3,7 @@ import HotTable from 'react-handsontable';
 import localforage from 'localforage';
 import axios from 'axios';
 import {Button, Col, Row} from 'react-materialize'
+import './login.css'
 
 import {branchNames, events} from './data';
 
@@ -118,7 +119,7 @@ export default class Table extends Component {
                 const response = error.response;
                 if (response.status === 404 || response.status === 405) {
                     const errors = response.data.invalid.map(p => +p + 1).join(',');
-                    self.setState(() => ({error: `Error in rows ${errors}`}));
+                    self.setState(() => ({error: `Error in row ${errors}`}));
                 } else if (response.status === 401) {
                     self.setState(() => ({error: `Authentication error. Please login again`}));
                 } else {
@@ -184,16 +185,22 @@ export default class Table extends Component {
                               }
                           }}
                 />
-                <Row align="center">
-                    <Col s={3} offset="s3" align="center">
+                <Row align="center" className="submitRow">
+                    <Col s={2} align="left">
                         <Button id="sub" onClick={this.sendData}>Send</Button>
                     </Col>
-                    <Col s={3} align="center">
+                    <Col s={2} align="left">
                         <Button id="clear" onClick={this.cleanupData}>Cleanup</Button>
                     </Col>
                 </Row>
-                <div>{this.state.error}</div>
-                <div>{this.state.message}</div>
+                <Row>
+                    <Col s={4} offset="s4" align="center">
+                        <div className="error">{this.state.error}</div>
+                    </Col>
+                    <Col s={4} offset="s4" align="center">
+                        <div className="message">{this.state.message}</div>
+                    </Col>
+                </Row>
             </div>
         );
     }
