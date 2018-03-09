@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './login.css';
 import axios from 'axios';
-import {Input, Row, Col, Button} from 'react-materialize'
+import {Input, Row, Col, Button} from 'react-materialize';
+
+import {apiBaseUrl} from './data';
 
 class Login extends Component {
     constructor(props) {
@@ -9,13 +11,19 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            loginError: ''
+            loginError: '',
+            loginBtnDisabled: false
         };
     }
 
     handleClick(event) {
-        let apiBaseUrl = 'https://udaan18-participants-api.herokuapp.com/users/login';
-        let self = this;
+
+        this.setState(() => ({
+            loginBtnDisabled: true
+        }));
+
+        const apiUrl = apiBaseUrl + 'users/login';
+        const self = this;
         const payload = {
             username: this.state.username,
             password: this.state.password
@@ -23,8 +31,13 @@ class Login extends Component {
         const headers = {
             'Content-Type': 'application/json'
         };
-        axios.post(apiBaseUrl, payload, {headers})
+        axios.post(apiUrl, payload, {headers})
             .then((response) => {
+
+                this.setState(() => ({
+                    loginBtnDisabled: false
+                }));
+
                 console.log(response);
                 if (response.status === 200) {
                     console.log("Login successful");
@@ -36,6 +49,11 @@ class Login extends Component {
                 }
             })
             .catch((error) => {
+
+                this.setState(() => ({
+                    loginBtnDisabled: false
+                }));
+
                 self.setState(() => ({loginError: 'Login failed.'}));
                 console.log(error);
             });
@@ -46,13 +64,8 @@ class Login extends Component {
         return (
             <div>
                 <Row>
-                    <Col s={4} align="center">
-                        <div className="instructions">
-                            Instructions:
-                        </div>
-                    </Col>
-                    <Col s={4} align="center">
-                        <img src="./logo.png" className="responsive-img"/>
+                    <Col s={4} offset="s4" align="center">
+                        <img src="./logo.png" alt="udaan-logo" className="responsive-img"/>
                     </Col>
                 </Row>
                 <Row>
@@ -67,7 +80,8 @@ class Login extends Component {
                 </Row>
                 <Row>
                     <Col s={4} offset="s4" align="center">
-                        <Button waves="light" onClick={(event) => this.handleClick(event)}>Login</Button>
+                        <Button disabled={this.state.loginBtnDisabled}
+                            waves="light" onClick={(event) => this.handleClick(event)}>Login</Button>
                     </Col>
                 </Row>
                 <Row align="center">
@@ -75,7 +89,6 @@ class Login extends Component {
                         {this.state.loginError}
                     </div>
                 </Row>
-
             </div>
         );
     };

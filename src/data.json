@@ -254,9 +254,10 @@
     "IT",
     "MECH",
     "PROD",
-    "EC",
-    "ET",
+    "EC/ET",
     "EL",
-    "CE"
-  ]
+    "CE",
+    "EE"
+  ],
+  "apiBaseUrl": "https://udaan18-participants-api.herokuapp.com/"
 }

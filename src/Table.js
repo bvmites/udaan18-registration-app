@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Button, Col, Row} from 'react-materialize'
 import './login.css'
 
-import {branchNames, events} from './data';
+import {branchNames, events, apiBaseUrl} from './data';
 
 const eventNames = events.map(e => e.eventName);
 
@@ -44,7 +44,8 @@ export default class Table extends Component {
         this.state = {
             tableData: [[]],
             error: '',
-            message: ''
+            message: '',
+            submitBtnDisabled: false
         };
         this.handleDataChange = this.handleDataChange.bind(this);
         this.sendData = this.sendData.bind(this);
@@ -74,6 +75,12 @@ export default class Table extends Component {
     }
 
     handleDataChange(data) {
+
+        this.setState(() => ({
+            error: '',
+            message: ''
+        }));
+
         localforage.setItem(this.props.user.name, data)
             .then(() => localforage.getItem(this.props.user.name))
             .then(data => this.setState(() => ({tableData: data})));
@@ -95,8 +102,15 @@ export default class Table extends Component {
     }
 
     sendData() {
+
+        this.setState(() => ({
+            submitBtnDisabled: true,
+            error: '',
+            message: ''
+        }));
+
         const self = this;
-        const apiUrl = 'https://udaan18-participants-api.herokuapp.com/participants';
+        const apiUrl = apiBaseUrl + 'participants';
         const data = this.getData();
         const payload = data.map(p => {
             const event = events.find(e => e.eventName === p.eventName);
@@ -110,19 +124,34 @@ export default class Table extends Component {
         console.log('HEADERS', headers);
         axios.post(apiUrl, payload, {headers})
             .then((response) => {
+
+                this.setState(() => ({
+                    submitBtnDisabled: false,
+                    error: '',
+                    message: ''
+                }));
+
                 if (response.status === 200) {
                     self.clearData();
                     self.setState(() => ({message: 'Data sent successfully.'}));
                 }
             })
             .catch(error => {
+
+                this.setState(() => ({
+                    submitBtnDisabled: false
+                }));
+
                 const response = error.response;
                 if (response.status === 404 || response.status === 405) {
                     const errors = response.data.invalid.map(p => +p + 1).join(',');
                     self.setState(() => ({error: `Error in row ${errors}`}));
                 } else if (response.status === 401) {
-                    self.setState(() => ({error: `Authentication error. Please login again`}));
-                } else {
+                    self.setState(() => ({error: `Authentication error. Please login again.`}));
+                } else if (response.status === 406) {
+                    self.setState(() => ({error: `Cannot send empty input.`}));
+                }
+                else {
                     self.setState(() => ({error: `Internal server error.`}));
                 }
             })
@@ -151,7 +180,9 @@ export default class Table extends Component {
                               columns: [
                                   {
                                       type: 'date',
-                                      defaultDate: new Date()
+                                      defaultDate: new Date(),
+                                      dateFormat: 'DD/MM/YYYY',
+                                      correctFormat: true,
                                   },
                                   {},
                                   {
@@ -162,7 +193,7 @@ export default class Table extends Component {
                                   {
                                       type: 'autocomplete',
                                       source: branchNames,
-                                      strict: false
+                                      strict: true
                                   },
                                   {
                                       type: 'autocomplete',
@@ -195,7 +226,7 @@ export default class Table extends Component {
                 />
                 <Row align="center" className="submitRow">
                     <Col s={2} align="left">
-                        <Button id="sub" onClick={this.sendData}>Send</Button>
+                        <Button id="sub"  disabled={this.state.submitBtnDisabled} onClick={this.sendData}>Send</Button>
                     </Col>
                     <Col s={2} align="left">
                         <Button id="clear" onClick={this.cleanupData}>Cleanup</Button>
